@@ -1,0 +1,45 @@
+{
+    "name": "sleevesup/kiwiki-api",
+    "description": "",
+    "keywords": [
+        "kiwiki",
+        "kiwi",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "homepage": "https://gitlab.com/sleevesup/kiwiki-php-client",
+    "license": "proprietary",
+    "authors": [
+         {
+            "name": "Sebastian Fuss",
+            "email": "sf@sleevesup.de"
+        },
+        {
+            "name": "KIWI.KI Dev Team",
+            "email": "api@kiwi.ki"
+        },
+        {
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "~2.12"
+    },
+    "autoload": {
+        "psr-4": { "KiwiKi\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "KiwiKi\\" : "test/" }
+    }
+}
