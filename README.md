@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com//.git"
+      "url": "https://gitlab.com/sleevesup/kiwiki-php-client.git"
     }
   ],
   "require": {
-    "/": "*@dev"
+    "sleevesup/kiwiki-api": "dev-main",
   }
 }
 ```
