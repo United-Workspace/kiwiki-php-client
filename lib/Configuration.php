@@ -39,7 +39,7 @@ namespace KiwiKi;
  */
 class Configuration
 {
-    private static $defaultConfiguration;
+    private static $defaultConfiguration = null;
 
     /**
      * Associate array to store API key(s)
