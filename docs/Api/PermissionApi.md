@@ -87,7 +87,7 @@ $apiInstance = new KiwiKi\Api\PermissionApi(
     $config
 );
 $permission_id = 56; // int | ID of the permission that should be edited.
-$permission_data = new \KiwiKi\Model\\KiwiKi\Model\PermissionData(); // \KiwiKi\Model\PermissionData | 
+$permission_data = new \KiwiKi\Model\PermissionData1(); // \KiwiKi\Model\PermissionData1 | 
 
 try {
     $apiInstance->v1PermissionsPermissionIdPut($permission_id, $permission_data);
@@ -102,7 +102,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **permission_id** | **int**| ID of the permission that should be edited. |
- **permission_data** | [**\KiwiKi\Model\PermissionData**](../Model/.md)|  |
+ **permission_data** | [**\KiwiKi\Model\PermissionData1**](../Model/PermissionData1.md)|  |
 
 ### Return type
 
@@ -142,7 +142,7 @@ $apiInstance = new KiwiKi\Api\PermissionApi(
     new GuzzleHttp\Client(),
     $config
 );
-$permission_data = new \KiwiKi\Model\\KiwiKi\Model\PermissionData(); // \KiwiKi\Model\PermissionData | 
+$permission_data = new \KiwiKi\Model\PermissionData(); // \KiwiKi\Model\PermissionData | 
 
 try {
     $result = $apiInstance->v1PermissionsUserSensorPost($permission_data);
@@ -157,7 +157,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission_data** | [**\KiwiKi\Model\PermissionData**](../Model/.md)|  |
+ **permission_data** | [**\KiwiKi\Model\PermissionData**](../Model/PermissionData.md)|  |
 
 ### Return type
 

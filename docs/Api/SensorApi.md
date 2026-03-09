@@ -34,7 +34,7 @@ $apiInstance = new KiwiKi\Api\SensorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$fname_data = new \KiwiKi\Model\\KiwiKi\Model\FnameData(); // \KiwiKi\Model\FnameData | 
+$fname_data = new \KiwiKi\Model\FnameData(); // \KiwiKi\Model\FnameData | 
 
 try {
     $result = $apiInstance->v1FriendlyNamesSensorSensorIdPost($fname_data);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fname_data** | [**\KiwiKi\Model\FnameData**](../Model/.md)|  |
+ **fname_data** | [**\KiwiKi\Model\FnameData**](../Model/FnameData.md)|  |
 
 ### Return type
 
@@ -89,9 +89,9 @@ $apiInstance = new KiwiKi\Api\SensorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$lat = new \stdClass; // object | Latitude (coordinate) in radians
-$lng = new \stdClass; // object | Longitude (coordinate) in radians
-$max_distance = new \stdClass; // object | Maximal distance from specified coordinates in kilometers
+$lat = 8.14; // float | Latitude (coordinate) in radians
+$lng = 8.14; // float | Longitude (coordinate) in radians
+$max_distance = 8.14; // float | Maximal distance from specified coordinates in kilometers
 $specifier = "specifier_example"; // string | Match on `specifier` sensor property
 $street = "street_example"; // string | Street name of sensor's address
 $city = "city_example"; // string | City where sensor is located
@@ -117,9 +117,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lat** | [**object**](../Model/.md)| Latitude (coordinate) in radians | [optional]
- **lng** | [**object**](../Model/.md)| Longitude (coordinate) in radians | [optional]
- **max_distance** | [**object**](../Model/.md)| Maximal distance from specified coordinates in kilometers | [optional]
+ **lat** | **float**| Latitude (coordinate) in radians | [optional]
+ **lng** | **float**| Longitude (coordinate) in radians | [optional]
+ **max_distance** | **float**| Maximal distance from specified coordinates in kilometers | [optional]
  **specifier** | **string**| Match on &#x60;specifier&#x60; sensor property | [optional]
  **street** | **string**| Street name of sensor&#39;s address | [optional]
  **city** | **string**| City where sensor is located | [optional]
