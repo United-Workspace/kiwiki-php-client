@@ -1,0 +1,3603 @@
+{
+  "definitions": {
+    "Address": {
+      "properties": {
+        "address_id": {
+          "example": 2506, 
+          "type": "integer"
+        }, 
+        "city": {
+          "example": "Berlin", 
+          "type": "string"
+        }, 
+        "postal_code": {
+          "example": 13355, 
+          "type": "integer"
+        }, 
+        "street": {
+          "example": "Wattstr. 11", 
+          "type": "string"
+        }
+      }
+    }, 
+    "AddressResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "exists": {
+              "description": "KIWI installed at given address", 
+              "example": true, 
+              "type": "boolean"
+            }, 
+            "results": {
+              "items": {
+                "$ref": "#/definitions/Address", 
+                "type": "object"
+              }, 
+              "type": "array"
+            }, 
+            "total_results": {
+              "example": 1, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "CustomAttribute": {
+      "properties": {
+        "key": {
+          "example": "JKkegcFdz", 
+          "type": "string"
+        }, 
+        "label": {
+          "example": "Floor", 
+          "type": "string"
+        }
+      }
+    }, 
+    "EmailChangeResult": {
+      "properties": {
+        "is_confirmation_required": {
+          "description": "Whether the change needs to be confirmed by the user by clicking the link in the confirmation email that was sent to the new address.\n", 
+          "type": "boolean"
+        }
+      }, 
+      "required": [
+        "is_confirmation_required"
+      ]
+    }, 
+    "EmailRemovedResult": {
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/User", 
+          "type": "object"
+        }
+      }, 
+      "required": [
+        "user"
+      ]
+    }, 
+    "FnameSet": {
+      "properties": {
+        "result": {
+          "properties": {
+            "fname": {
+              "example": "Keller", 
+              "type": "string"
+            }, 
+            "sensor_id": {
+              "example": 80, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributeCreated": {
+      "properties": {
+        "key": {
+          "example": "FLDT2sCgX", 
+          "type": "string"
+        }, 
+        "label": {
+          "example": "My custom attribute", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributeCreatedResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationCustomAttributeCreated", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributeDataEditedResult": {
+      "properties": {
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributeDeletedResult": {
+      "properties": {
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributeEditedResult": {
+      "properties": {
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributesData": {
+      "properties": {
+        "attributes": {
+          "items": {
+            "properties": {
+              "key": {
+                "example": "FLDT2sCgX", 
+                "type": "string"
+              }, 
+              "label": {
+                "example": "My custom attribute", 
+                "type": "string"
+              }, 
+              "value": {
+                "example": "Attribute data", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributesDataResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationCustomAttributesData", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributesList": {
+      "properties": {
+        "attributes": {
+          "items": {
+            "properties": {
+              "attrib_key": {
+                "example": "FLDT2sCgX", 
+                "type": "string"
+              }, 
+              "created_by": {
+                "example": 5678, 
+                "type": "integer"
+              }, 
+              "created_on": {
+                "format": "date-time", 
+                "type": "string"
+              }, 
+              "label": {
+                "example": "My custom attribute", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }
+      }
+    }, 
+    "OrganizationCustomAttributesListResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationCustomAttributesList", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldCreated": {
+      "properties": {
+        "custom_field": {
+          "properties": {
+            "created": {
+              "format": "date-time", 
+              "type": "string"
+            }, 
+            "deleted": {
+              "format": "date-time", 
+              "type": "string"
+            }, 
+            "field_name": {
+              "example": "My custom field", 
+              "type": "string"
+            }, 
+            "id": {
+              "example": 123, 
+              "type": "integer"
+            }, 
+            "organization_id": {
+              "example": 1001, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldCreatedResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationCustomFieldCreated", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldDeletedResult": {
+      "properties": {
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldEdited": {
+      "properties": {
+        "custom_field": {
+          "properties": {
+            "created": {
+              "format": "date-time", 
+              "type": "string"
+            }, 
+            "deleted": {
+              "format": "date-time", 
+              "type": "string"
+            }, 
+            "field_name": {
+              "example": "My custom field_name", 
+              "type": "string"
+            }, 
+            "id": {
+              "example": 123, 
+              "type": "integer"
+            }, 
+            "organization_id": {
+              "example": 1001, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldEditedResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationCustomFieldEdited", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldsList": {
+      "properties": {
+        "custom_fields": {
+          "items": {
+            "properties": {
+              "field_name": {
+                "example": "My custom field", 
+                "type": "string"
+              }, 
+              "id": {
+                "example": 123, 
+                "type": "integer"
+              }, 
+              "organization_id": {
+                "example": 1001, 
+                "type": "integer"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }
+      }
+    }, 
+    "OrganizationCustomFieldsListResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationCustomFieldsList", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationUserCustomField": {
+      "properties": {
+        "custom_field": {
+          "properties": {
+            "custom_field_id": {
+              "example": 5678, 
+              "type": "integer"
+            }, 
+            "exists": {
+              "example": false, 
+              "type": "boolean"
+            }, 
+            "field_name": {
+              "example": "My custom field name", 
+              "type": "string"
+            }, 
+            "last_updated": {
+              "format": "date-time", 
+              "type": "string"
+            }, 
+            "last_updated_by": {
+              "example": 12345, 
+              "type": "integer"
+            }, 
+            "user_id": {
+              "example": 12345, 
+              "type": "integer"
+            }, 
+            "value": {
+              "example": "Value for this field", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }
+    }, 
+    "OrganizationUserCustomFieldResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationUserCustomField", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "OrganizationUserCustomFieldsList": {
+      "properties": {
+        "custom_fields": {
+          "items": {
+            "properties": {
+              "custom_field_id": {
+                "example": 5678, 
+                "type": "integer"
+              }, 
+              "custom_organization_id": {
+                "example": 1001, 
+                "type": "integer"
+              }, 
+              "field_name": {
+                "example": "My custom field", 
+                "type": "string"
+              }, 
+              "last_updated": {
+                "format": "date-time", 
+                "type": "string"
+              }, 
+              "organization_id": {
+                "example": 1001, 
+                "type": "integer"
+              }, 
+              "value": {
+                "example": "Value", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }
+      }
+    }, 
+    "OrganizationUserCustomFieldsListResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/OrganizationUserCustomFieldsList", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "PermissionCreated": {
+      "properties": {
+        "result": {
+          "properties": {
+            "task_id": {
+              "example": 113820, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "Sensor": {
+      "properties": {
+        "address": {
+          "properties": {
+            "city": {
+              "example": "Berlin", 
+              "type": "string"
+            }, 
+            "country": {
+              "example": "DE", 
+              "type": "string"
+            }, 
+            "door_number": {
+              "example": 32, 
+              "type": "integer"
+            }, 
+            "floor": {
+              "example": 2, 
+              "type": "integer"
+            }, 
+            "id": {
+              "example": 6676, 
+              "type": "integer"
+            }, 
+            "lat": {
+              "example": 52.54129131, 
+              "type": "number"
+            }, 
+            "lng": {
+              "example": 13.39001672, 
+              "type": "number"
+            }, 
+            "postal_code": {
+              "example": 13355, 
+              "type": "integer"
+            }, 
+            "specifier": {
+              "example": "Vorderhaus", 
+              "type": "string"
+            }, 
+            "state": {
+              "example": "Berlin", 
+              "type": "string"
+            }, 
+            "street": {
+              "example": "Wattstr. 11", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "battery_level": {
+          "example": 245, 
+          "type": "integer"
+        }, 
+        "battery_level_since": {
+          "example": "2022-01-01T12:30:26.580840+00:00", 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "battery_status": {
+          "example": "OK", 
+          "type": "string"
+        }, 
+        "battery_step": {
+          "example": 3, 
+          "type": "integer"
+        }, 
+        "can_invite": {
+          "type": "boolean"
+        }, 
+        "custom_attributes": {
+          "type": "object"
+        }, 
+        "customer_name": {
+          "example": "Eingangst\u00fcr", 
+          "type": "string"
+        }, 
+        "door_type": {
+          "example": "COMMUNAL", 
+          "type": "string"
+        }, 
+        "hardware_type": {
+          "example": "NDS_SENSOR", 
+          "type": "string"
+        }, 
+        "hardware_variant": {
+          "example": "NDS", 
+          "type": "string"
+        }, 
+        "highest_permission": {
+          "example": "IS_GUEST", 
+          "type": "string"
+        }, 
+        "installation_date": {
+          "example": "2022-01-01T12:30:26.580840+00:00", 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "is_favorite": {
+          "type": "boolean"
+        }, 
+        "is_owner": {
+          "type": "boolean"
+        }, 
+        "owner": {
+          "properties": {
+            "lastname": {
+              "example": "Doe", 
+              "type": "string"
+            }, 
+            "name": {
+              "example": "John", 
+              "type": "string"
+            }, 
+            "org": {
+              "example": "Random Housing Company", 
+              "type": "string"
+            }, 
+            "org_id": {
+              "example": 5, 
+              "type": "integer"
+            }, 
+            "user_id": {
+              "example": 17372, 
+              "type": "string"
+            }, 
+            "username": {
+              "example": "user@kiwi.ki", 
+              "format": "email", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "sensor_id": {
+          "example": 80, 
+          "type": "integer"
+        }, 
+        "sensor_name": {
+          "example": "Eingangst\u00fcr", 
+          "type": "string"
+        }
+      }
+    }, 
+    "SensorPermission": {
+      "properties": {
+        "begins": {
+          "example": "2019-01-01T01:00:00+01:00", 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "can_modify": {
+          "type": "boolean"
+        }, 
+        "deleted": {
+          "example": null, 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "ends": {
+          "example": "2019-02-01T01:00:00+01:00", 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "granted": {
+          "enum": [
+            "IS_ADMIN", 
+            "IS_MANAGER", 
+            "IS_HOST", 
+            "IS_GUEST"
+          ], 
+          "type": "string"
+        }, 
+        "granted_by": {
+          "properties": {
+            "user_id": {
+              "example": 145, 
+              "type": "integer"
+            }, 
+            "username": {
+              "example": "user@kiwi.ki", 
+              "format": "email", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "id": {
+          "example": 226386, 
+          "type": "integer"
+        }, 
+        "sensors": {
+          "items": {
+            "$ref": "#/definitions/Sensor"
+          }, 
+          "type": "array"
+        }, 
+        "timeofday_begins": {
+          "example": "10:00:00", 
+          "format": "time", 
+          "type": "string"
+        }, 
+        "timeofday_ends": {
+          "example": "18:00:00", 
+          "format": "time", 
+          "type": "string"
+        }, 
+        "timing_state": {
+          "enum": [
+            "active", 
+            "pending", 
+            "expired", 
+            "offday", 
+            "offhours"
+          ], 
+          "type": "string"
+        }, 
+        "users": {
+          "items": {
+            "properties": {
+              "custom_fields": {
+                "example": {
+                  "6zBfjsewX": 17832
+                }, 
+                "type": "object"
+              }, 
+              "lastname": {
+                "example": "Doe", 
+                "type": "string"
+              }, 
+              "name": {
+                "example": "John", 
+                "type": "string"
+              }, 
+              "segment_id": {
+                "example": 50, 
+                "type": "integer"
+              }, 
+              "user_id": {
+                "example": 2634, 
+                "type": "integer"
+              }, 
+              "username": {
+                "example": "john.doe@kiwi.ki", 
+                "format": "email", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }, 
+        "weekdays": {
+          "items": {
+            "enum": [
+              "monday", 
+              "tuesday", 
+              "wednesday", 
+              "thursday", 
+              "friday", 
+              "saturday", 
+              "sunday"
+            ], 
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }
+    }, 
+    "SensorPermissionsResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "custom_attributes": {
+              "items": {
+                "$ref": "#/definitions/CustomAttribute"
+              }, 
+              "type": "array"
+            }, 
+            "order_by": {
+              "enum": [
+                "ASC", 
+                "DESC"
+              ], 
+              "type": "string"
+            }, 
+            "page_number": {
+              "example": 1, 
+              "type": "integer"
+            }, 
+            "page_size": {
+              "example": 20, 
+              "type": "integer"
+            }, 
+            "permissions": {
+              "items": {
+                "$ref": "#/definitions/SensorPermission"
+              }, 
+              "type": "array"
+            }, 
+            "sort_by": {
+              "example": "id", 
+              "type": "string"
+            }, 
+            "total_results": {
+              "example": 1, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "SensorResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "order_by": {
+              "enum": [
+                "ASC", 
+                "DESC"
+              ], 
+              "type": "string"
+            }, 
+            "page_number": {
+              "example": 1, 
+              "type": "integer"
+            }, 
+            "page_size": {
+              "example": 20, 
+              "type": "integer"
+            }, 
+            "sensors": {
+              "items": {
+                "$ref": "#/definitions/Sensor"
+              }, 
+              "type": "array"
+            }, 
+            "sort_by": {
+              "items": {
+                "example": "sensor_id", 
+                "type": "string"
+              }, 
+              "type": "array"
+            }, 
+            "total_results": {
+              "example": 1, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "SensorSingleResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "sensor": {
+              "items": {
+                "$ref": "#/definitions/Sensor"
+              }, 
+              "type": "array"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "Session": {
+      "properties": {
+        "session": {
+          "properties": {
+            "account_verification": {
+              "deprecated": true, 
+              "example": 1, 
+              "type": "integer"
+            }, 
+            "is_admin": {
+              "type": "boolean"
+            }, 
+            "session_key": {
+              "example": "f143077693f4e389fbc92394967898bd", 
+              "type": "string"
+            }, 
+            "user_id": {
+              "type": "integer"
+            }, 
+            "username": {
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "session_key": {
+          "example": "f143077693f4e389fbc92394967898bd", 
+          "type": "string"
+        }
+      }
+    }, 
+    "SessionResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/Session", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "Task": {
+      "properties": {
+        "result": {
+          "properties": {
+            "task": {
+              "properties": {
+                "arguments": {
+                  "additionalProperties": {}, 
+                  "type": "object"
+                }, 
+                "can_abort": {
+                  "example": true, 
+                  "type": "boolean"
+                }, 
+                "created": {
+                  "example": "2019-01-01T00:00:00", 
+                  "type": "string"
+                }, 
+                "finished": {
+                  "example": "2019-01-01T00:01:00", 
+                  "type": "string"
+                }, 
+                "id": {
+                  "example": 123456, 
+                  "type": "integer"
+                }, 
+                "name": {
+                  "example": "firmware_update.update", 
+                  "type": "string"
+                }, 
+                "progress": {
+                  "example": 1, 
+                  "type": "integer"
+                }, 
+                "result": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "description": "A specific error code for the type of error.", 
+                          "example": 404, 
+                          "type": "integer"
+                        }, 
+                        "description": {
+                          "description": "A human-readable message explaining the error.", 
+                          "example": "Resource not found.", 
+                          "type": "string"
+                        }, 
+                        "reason": {
+                          "description": "Optional additional details for debugging.", 
+                          "example": "The task with ID '987654' does not exist.", 
+                          "type": "string"
+                        }
+                      }, 
+                      "type": "object"
+                    }
+                  }, 
+                  "type": "object"
+                }, 
+                "stage": {
+                  "description": "Stage of the task execution.", 
+                  "example": 0, 
+                  "type": "integer"
+                }, 
+                "status": {
+                  "description": "Current status of the task.", 
+                  "enum": [
+                    "failed", 
+                    "ready", 
+                    "aborted", 
+                    "in_progress", 
+                    "success"
+                  ], 
+                  "example": "in_progress", 
+                  "type": "string"
+                }, 
+                "user_id": {
+                  "description": "ID of the user who triggered the task.", 
+                  "example": 45678, 
+                  "type": "integer"
+                }
+              }, 
+              "type": "object"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "User": {
+      "properties": {
+        "analytics_consent": {
+          "type": "boolean"
+        }, 
+        "contact": {
+          "properties": {
+            "customer_number": {
+              "example": "10DE1500001670", 
+              "type": "string"
+            }, 
+            "email": {
+              "example": "user@kiwi.ki", 
+              "format": "email", 
+              "type": "string"
+            }, 
+            "lastname": {
+              "example": "Moritz", 
+              "type": "string"
+            }, 
+            "name": {
+              "example": "Max", 
+              "type": "string"
+            }, 
+            "segment_id": {
+              "example": 10, 
+              "type": "integer"
+            }
+          }, 
+          "required": [
+            "customer_number", 
+            "email", 
+            "lastname", 
+            "name", 
+            "segment_id"
+          ], 
+          "type": "object"
+        }, 
+        "custom_fields": {
+          "type": "object"
+        }, 
+        "email_verification_status": {
+          "enum": [
+            "NOT_STARTED", 
+            "PENDING", 
+            "COMPLETED"
+          ], 
+          "example": "COMPLETED", 
+          "type": "string"
+        }, 
+        "is_managed": {
+          "type": "boolean"
+        }, 
+        "is_offline": {
+          "type": "boolean"
+        }, 
+        "migration_status": {
+          "enum": [
+            "NOT_STARTED", 
+            "PENDING", 
+            "COMPLETED"
+          ], 
+          "example": "COMPLETED", 
+          "type": "string"
+        }, 
+        "organization_id": {
+          "example": 11, 
+          "type": "integer"
+        }, 
+        "user_id": {
+          "example": 1670, 
+          "type": "integer"
+        }, 
+        "username": {
+          "example": "user@kiwi.ki", 
+          "type": "string"
+        }
+      }, 
+      "required": [
+        "contact", 
+        "custom_fields", 
+        "email_verification_status", 
+        "is_managed", 
+        "is_offline", 
+        "migration_status", 
+        "organization_id", 
+        "user_id", 
+        "username"
+      ]
+    }, 
+    "UserCreated": {
+      "properties": {
+        "customer_number": {
+          "example": "10DE1500005617", 
+          "type": "string"
+        }, 
+        "email": {
+          "format": "email", 
+          "type": "string"
+        }, 
+        "user_id": {
+          "example": 5617, 
+          "type": "integer"
+        }, 
+        "username": {
+          "format": "email", 
+          "type": "string"
+        }
+      }
+    }, 
+    "UserCreatedResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "user": {
+              "$ref": "#/definitions/UserCreated", 
+              "type": "object"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "UserCustomFieldValueEdited": {
+      "properties": {
+        "custom_field": {
+          "properties": {
+            "custom_field_id": {
+              "example": 5678, 
+              "type": "integer"
+            }, 
+            "last_updated": {
+              "format": "date-time", 
+              "type": "string"
+            }, 
+            "last_updated_by": {
+              "example": 12345, 
+              "type": "integer"
+            }, 
+            "user_id": {
+              "example": 12345, 
+              "type": "integer"
+            }, 
+            "value": {
+              "example": "Edited value", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }
+    }, 
+    "UserCustomFieldValueEditedResult": {
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/UserCustomFieldValueEdited", 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "UserMovedOut": {
+      "properties": {
+        "result": {
+          "properties": {
+            "removed_permissions": {
+              "items": {
+                "example": 1345, 
+                "type": "integer"
+              }, 
+              "type": "array"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "UserPermission": {
+      "properties": {
+        "begins": {
+          "example": "2019-01-01T01:00:00+01:00", 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "can_modify": {
+          "type": "boolean"
+        }, 
+        "deleted": {
+          "example": null, 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "ends": {
+          "example": "2019-02-01T01:00:00+01:00", 
+          "format": "date-time", 
+          "type": "string"
+        }, 
+        "granted": {
+          "enum": [
+            "IS_ADMIN", 
+            "IS_MANAGER", 
+            "IS_HOST", 
+            "IS_GUEST"
+          ], 
+          "type": "string"
+        }, 
+        "granted_by": {
+          "properties": {
+            "user_id": {
+              "example": 145, 
+              "type": "integer"
+            }, 
+            "username": {
+              "example": "user@kiwi.ki", 
+              "format": "email", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "id": {
+          "example": 226386, 
+          "type": "integer"
+        }, 
+        "sensors": {
+          "items": {
+            "properties": {
+              "address": {
+                "properties": {
+                  "city": {
+                    "example": "Berlin", 
+                    "type": "string"
+                  }, 
+                  "id": {
+                    "example": 7680, 
+                    "type": "integer"
+                  }, 
+                  "postal_code": {
+                    "example": 13355, 
+                    "type": "integer"
+                  }, 
+                  "specifier": {
+                    "example": "Entrance door", 
+                    "type": "string"
+                  }, 
+                  "street": {
+                    "example": "Wattstr. 11", 
+                    "type": "string"
+                  }
+                }, 
+                "type": "object"
+              }, 
+              "custom_attributes": {
+                "example": {
+                  "JKkegcFdz": 3
+                }, 
+                "type": "object"
+              }, 
+              "sensor_id": {
+                "example": 80, 
+                "type": "integer"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }, 
+        "timeofday_begins": {
+          "example": "10:00:00", 
+          "format": "time", 
+          "type": "string"
+        }, 
+        "timeofday_ends": {
+          "example": "18:00:00", 
+          "format": "time", 
+          "type": "string"
+        }, 
+        "timing_state": {
+          "enum": [
+            "active", 
+            "pending", 
+            "expired", 
+            "offday", 
+            "offhours"
+          ], 
+          "type": "string"
+        }, 
+        "type": {
+          "properties": {
+            "role": {
+              "description": "Determines whether permission is a role permission", 
+              "example": false, 
+              "type": "boolean"
+            }, 
+            "user_sensor_permission": {
+              "description": "Determines whether permission is a user - sensor permission", 
+              "example": true, 
+              "type": "boolean"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "users": {
+          "items": {
+            "properties": {
+              "custom_fields": {
+                "example": {
+                  "6zBfjsewX": 17832
+                }, 
+                "type": "object"
+              }, 
+              "lastname": {
+                "example": "Doe", 
+                "type": "string"
+              }, 
+              "name": {
+                "example": "John", 
+                "type": "string"
+              }, 
+              "segment_id": {
+                "example": 50, 
+                "type": "integer"
+              }, 
+              "user_id": {
+                "example": 2634, 
+                "type": "integer"
+              }, 
+              "username": {
+                "example": "john.doe@kiwi.ki", 
+                "format": "email", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "type": "array"
+        }, 
+        "weekdays": {
+          "items": {
+            "enum": [
+              "monday", 
+              "tuesday", 
+              "wednesday", 
+              "thursday", 
+              "friday", 
+              "saturday", 
+              "sunday"
+            ], 
+            "type": "string"
+          }, 
+          "type": "array"
+        }
+      }
+    }, 
+    "UserPermissionsResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "custom_attributes": {
+              "items": {
+                "$ref": "#/definitions/CustomAttribute"
+              }, 
+              "type": "array"
+            }, 
+            "order_by": {
+              "enum": [
+                "ASC", 
+                "DESC"
+              ], 
+              "type": "string"
+            }, 
+            "page_number": {
+              "example": 1, 
+              "type": "integer"
+            }, 
+            "page_size": {
+              "example": 20, 
+              "type": "integer"
+            }, 
+            "permissions": {
+              "items": {
+                "$ref": "#/definitions/UserPermission"
+              }, 
+              "type": "array"
+            }, 
+            "sort_by": {
+              "example": "id", 
+              "type": "string"
+            }, 
+            "total_results": {
+              "example": 1, 
+              "type": "integer"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "UserResult": {
+      "properties": {
+        "result": {
+          "properties": {
+            "user": {
+              "properties": {
+                "user": {
+                  "$ref": "#/definitions/User", 
+                  "type": "object"
+                }
+              }, 
+              "type": "object"
+            }
+          }, 
+          "type": "object"
+        }, 
+        "status": {
+          "example": "ok", 
+          "type": "string"
+        }
+      }
+    }, 
+    "responses": {
+      "BadRequest": {
+        "description": "Malformed request content", 
+        "schema": {
+          "properties": {
+            "message": {
+              "example": "Invalid parameters ...", 
+              "type": "string"
+            }, 
+            "status": {
+              "example": "error", 
+              "type": "string"
+            }, 
+            "status_code": {
+              "example": 400, 
+              "type": "integer"
+            }, 
+            "status_long_message": {
+              "example": "Bad request syntax or unsupported method", 
+              "type": "string"
+            }, 
+            "status_short_message": {
+              "example": "Bad Request", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }, 
+      "Conflict": {
+        "description": "Custom field name already exists", 
+        "schema": {
+          "properties": {
+            "message": {
+              "example": "The field name 'My custom field' already exists for organization 1001.", 
+              "type": "string"
+            }, 
+            "result": {
+              "properties": {
+                "track": {
+                  "example": false, 
+                  "type": "boolean"
+                }, 
+                "tracking_id": {
+                  "example": "1f0619de", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }, 
+            "status": {
+              "example": "error", 
+              "type": "string"
+            }, 
+            "status_code": {
+              "example": 409, 
+              "type": "integer"
+            }, 
+            "status_long_message": {
+              "example": "Request conflict", 
+              "type": "string"
+            }, 
+            "status_short_message": {
+              "example": "Conflict", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }, 
+      "Forbidden": {
+        "description": "Not allowed to perform this operation", 
+        "schema": {
+          "properties": {
+            "message": {
+              "example": "Not allowed to perform this operation", 
+              "type": "string"
+            }, 
+            "status": {
+              "example": "error", 
+              "type": "string"
+            }, 
+            "status_code": {
+              "example": 403, 
+              "type": "integer"
+            }, 
+            "status_long_message": {
+              "example": "Request forbidden -- authorization will not help", 
+              "type": "string"
+            }, 
+            "status_short_message": {
+              "example": "Forbidden", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }, 
+      "NotFound": {
+        "description": "Resource was not found", 
+        "schema": {
+          "properties": {
+            "message": {
+              "example": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.", 
+              "type": "string"
+            }, 
+            "status": {
+              "example": "error", 
+              "type": "string"
+            }, 
+            "status_code": {
+              "example": 404, 
+              "type": "integer"
+            }, 
+            "status_long_message": {
+              "example": "Nothing matches the given URI", 
+              "type": "string"
+            }, 
+            "status_short_message": {
+              "example": "Not Found", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }, 
+      "Unauthorized": {
+        "description": "Authorization failed for the resource", 
+        "schema": {
+          "properties": {
+            "message": {
+              "example": "Invalid username or password", 
+              "type": "string"
+            }, 
+            "status": {
+              "example": "error", 
+              "type": "string"
+            }, 
+            "status_code": {
+              "example": 401, 
+              "type": "integer"
+            }, 
+            "status_long_message": {
+              "example": "No permission -- see authorization schemes", 
+              "type": "string"
+            }, 
+            "status_short_message": {
+              "example": "Unauthorized", 
+              "type": "string"
+            }
+          }, 
+          "type": "object"
+        }
+      }
+    }
+  }, 
+  "externalDocs": {
+    "description": "KIWI API Product page", 
+    "url": "https://kiwi.ki/en/the-kiwi-products/the-kiwi-api/"
+  }, 
+  "info": {
+    "contact": {
+      "email": "api@kiwi.ki"
+    }, 
+    "description": "This is the documentation for the HTTP API provided by KIWI.KI GmbH for remote unlocking and administration of doors.\nThis API can be used for integration into existing systems and for application development.\n", 
+    "title": "The KIWI API", 
+    "version": "1.0.0 (Stable)"
+  }, 
+  "paths": {
+    "/v1/addresses/search/": {
+      "get": {
+        "description": "An existing address indicates that this building is already KIWI equipped.<br/>Session user needs to hold a permission to view the information regarding the sensor.", 
+        "parameters": [
+          {
+            "description": "A street name", 
+            "example": "Alexanderstr.", 
+            "in": "query", 
+            "name": "street", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "description": "Building number", 
+            "example": "123A", 
+            "in": "query", 
+            "name": "number", 
+            "type": "string"
+          }, 
+          {
+            "description": "Postal code (Postleitzahl)", 
+            "example": 10355, 
+            "in": "query", 
+            "name": "postal_code", 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Address is registered with KIWI", 
+            "schema": {
+              "$ref": "#/definitions/AddressResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Find an address in KIWI database", 
+        "tags": [
+          "Address"
+        ]
+      }
+    }, 
+    "/v1/friendly_names/sensor/{sensor_id}/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "fname_data", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "friendly_name": {
+                  "example": "Hauptgang", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "friendly_name"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Sensor friendly name updated", 
+            "schema": {
+              "$ref": "#/definitions/FnameSet", 
+              "type": "object"
+            }
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "summary": "Assign a custom name to a sensor (friendly name)", 
+        "tags": [
+          "Sensor"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-attributes-data/sensor/{sensor_id}/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 45678, 
+            "in": "path", 
+            "name": "sensor_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom attributes data", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomAttributesDataResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get an organization sensor's custom attributes data", 
+        "tags": [
+          "Organization"
+        ]
+      }, 
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 45678, 
+            "in": "path", 
+            "name": "sensor_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "body_values", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "attrib_key": {
+                      "example": "Updated value", 
+                      "type": "string"
+                    }
+                  }, 
+                  "type": "object"
+                }
+              }, 
+              "required": [
+                "data"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom attributes data edited", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomAttributeDataEditedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Edit an organization sensor's attribute (one or multiple)", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-attributes/sensor/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "List of organization's custom attributes", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomAttributesListResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get a list of organization's custom attributes", 
+        "tags": [
+          "Organization"
+        ]
+      }, 
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "body_values", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "label": {
+                  "example": "My custom attribute", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "label"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom attribute created", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomAttributeCreatedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Create an organization's custom attribute", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-attributes/sensor/{attrib_key}/": {
+      "delete": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": "FLDT2sCgX", 
+            "in": "path", 
+            "name": "attrib_key", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom attribute deleted", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomAttributeDeletedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Delete an organization's custom attribute", 
+        "tags": [
+          "Organization"
+        ]
+      }, 
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": "FLDT2sCgX", 
+            "in": "path", 
+            "name": "attrib_key", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "in": "body", 
+            "name": "body_values", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "label": {
+                  "example": "My custom attribute", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "label"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom attribute edited", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomAttributeEditedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Edit an organization's custom attribute label", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-fields/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "List of organization's custom fields", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomFieldsListResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get a list of organization's custom fields", 
+        "tags": [
+          "Organization"
+        ]
+      }, 
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "body_values", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "field_name": {
+                  "example": "My custom field", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "field_name"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom field created", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomFieldCreatedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }, 
+          "409": {
+            "$ref": "#/definitions/responses/Conflict"
+          }
+        }, 
+        "summary": "Create an organization's custom field", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-fields/user/{user_id}/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 12345, 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "List of users's custom fields", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationUserCustomFieldsListResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get a list of the user's custom fields", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-fields/{field_id}/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 5678, 
+            "in": "path", 
+            "name": "field_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 12345, 
+            "in": "query", 
+            "name": "user_id", 
+            "required": true
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization user's custom field", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationUserCustomFieldResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get a user's custom field", 
+        "tags": [
+          "Organization"
+        ]
+      }, 
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 5678, 
+            "in": "path", 
+            "name": "field_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "body_values", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "user_id": {
+                  "example": 12345, 
+                  "type": "integer"
+                }, 
+                "value": {
+                  "example": "Field value", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "user_id", 
+                "value"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "User custom field value edited", 
+            "schema": {
+              "$ref": "#/definitions/UserCustomFieldValueEditedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Edit user's custom field value", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/organizations/{organization_id}/custom-fields/{field_id}/manage/": {
+      "delete": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 123, 
+            "in": "path", 
+            "name": "field_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom field deleted", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomFieldDeletedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Delete an organization's custom field", 
+        "tags": [
+          "Organization"
+        ]
+      }, 
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1001, 
+            "in": "path", 
+            "name": "organization_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "example": 123, 
+            "in": "path", 
+            "name": "field_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "body_values", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "field_name": {
+                  "example": "My custom field", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "field_name"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Organization custom field edited", 
+            "schema": {
+              "$ref": "#/definitions/OrganizationCustomFieldEditedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }, 
+          "409": {
+            "$ref": "#/definitions/responses/Conflict"
+          }
+        }, 
+        "summary": "Edit organization's custom field name", 
+        "tags": [
+          "Organization"
+        ]
+      }
+    }, 
+    "/v1/permissions/user/sensor/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Creates a Permission for list of users (by their emails) and list of<br/>sensors (by their IDs)", 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "permission_data", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "begins": {
+                  "description": "Start date of the permission without timezone offset. Europe/Berlin timezone is assumed.", 
+                  "example": "2019-01-01T00:00:00", 
+                  "format": "date-time", 
+                  "type": "string"
+                }, 
+                "ends": {
+                  "description": "Expiration date of the permission without timezone offset. Europe/Berlin timezone is assumed.", 
+                  "example": "2019-02-01T00:00:00", 
+                  "format": "date-time", 
+                  "type": "string"
+                }, 
+                "permission": {
+                  "description": "Access level", 
+                  "enum": [
+                    "IS_GUEST", 
+                    "IS_HOST", 
+                    "IS_MANAGER", 
+                    "IS_ADMIN"
+                  ], 
+                  "type": "string"
+                }, 
+                "sensors": {
+                  "description": "IDs of sensors that the permission should be granted for.", 
+                  "items": {
+                    "example": 80, 
+                    "type": "integer"
+                  }, 
+                  "type": "array"
+                }, 
+                "timeofday_begins": {
+                  "description": "Start time of the permission on each day. Europe/Berlin timezone is assumed.", 
+                  "example": "10:00", 
+                  "format": "time", 
+                  "type": "string"
+                }, 
+                "timeofday_ends": {
+                  "description": "End time of the permission on each day. Europe/Berlin timezone is assumed.", 
+                  "example": "18:00", 
+                  "format": "time", 
+                  "type": "string"
+                }, 
+                "users": {
+                  "description": "Usernames/emails of users that the permission should be granted to.", 
+                  "items": {
+                    "format": "email", 
+                    "type": "string"
+                  }, 
+                  "type": "array"
+                }, 
+                "weekdays": {
+                  "description": "Weekdays on which the permission should be active.", 
+                  "example": "monday, tuesday", 
+                  "items": {
+                    "enum": [
+                      "monday", 
+                      "tuesday", 
+                      "wednesday", 
+                      "thursday", 
+                      "friday", 
+                      "saturday", 
+                      "sunday"
+                    ], 
+                    "type": "string"
+                  }, 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "users", 
+                "sensors", 
+                "permission"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "New permission created", 
+            "schema": {
+              "$ref": "#/definitions/PermissionCreated", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Create a new user - sensor permission", 
+        "tags": [
+          "Permission"
+        ]
+      }
+    }, 
+    "/v1/permissions/{permission_id}/": {
+      "delete": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "parameters": [
+          {
+            "description": "ID of the permission that should be deleted.", 
+            "example": 1501, 
+            "in": "path", 
+            "name": "permission_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Permission deleted"
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Delete a user - sensor permission.", 
+        "tags": [
+          "Permission"
+        ]
+      }, 
+      "put": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "parameters": [
+          {
+            "description": "ID of the permission that should be edited.", 
+            "example": 1501, 
+            "in": "path", 
+            "name": "permission_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "permission_data", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "begins": {
+                  "description": "Start date of the permission without timezone offset. Europe/Berlin timezone is assumed.", 
+                  "example": "2019-01-01T00:00:00", 
+                  "format": "date-time", 
+                  "type": "string"
+                }, 
+                "ends": {
+                  "description": "Expiration date of the permission without timezone offset. Europe/Berlin timezone is assumed.", 
+                  "example": "2019-02-01T00:00:00", 
+                  "format": "date-time", 
+                  "type": "string"
+                }, 
+                "timeofday_begins": {
+                  "description": "Start time of the permission on each day. Europe/Berlin timezone is assumed.", 
+                  "example": "10:00", 
+                  "format": "time", 
+                  "type": "string"
+                }, 
+                "timeofday_ends": {
+                  "description": "End time of the permission on each day. Europe/Berlin timezone is assumed.", 
+                  "example": "18:00", 
+                  "format": "time", 
+                  "type": "string"
+                }, 
+                "weekdays": {
+                  "description": "Weekdays on which the permission should be active.", 
+                  "example": "monday,tuesday", 
+                  "items": {
+                    "enum": [
+                      "monday", 
+                      "tuesday", 
+                      "wednesday", 
+                      "thursday", 
+                      "friday", 
+                      "saturday", 
+                      "sunday"
+                    ], 
+                    "type": "string"
+                  }, 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Permission updated"
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Edit a user - sensor permission.", 
+        "tags": [
+          "Permission"
+        ]
+      }
+    }, 
+    "/v1/sensors/": {
+      "get": {
+        "description": "Sensors can be filtered by various criteria.<br/>Only sensors visible assigned permission system are returned.", 
+        "parameters": [
+          {
+            "description": "Latitude (coordinate) in radians", 
+            "in": "query", 
+            "name": "lat", 
+            "type": "number"
+          }, 
+          {
+            "description": "Longitude (coordinate) in radians", 
+            "in": "query", 
+            "name": "lng", 
+            "type": "number"
+          }, 
+          {
+            "description": "Maximal distance from specified coordinates in kilometers", 
+            "in": "query", 
+            "name": "max_distance", 
+            "type": "number"
+          }, 
+          {
+            "description": "Match on `specifier` sensor property", 
+            "in": "query", 
+            "name": "specifier", 
+            "type": "string"
+          }, 
+          {
+            "description": "Street name of sensor's address", 
+            "in": "query", 
+            "name": "street", 
+            "type": "string"
+          }, 
+          {
+            "description": "City where sensor is located", 
+            "in": "query", 
+            "name": "city", 
+            "type": "string"
+          }, 
+          {
+            "description": "Province (Land) of sensor's address", 
+            "in": "query", 
+            "name": "state", 
+            "type": "string"
+          }, 
+          {
+            "description": "Postal code (Postleitzahl) of sensor's address", 
+            "in": "query", 
+            "name": "postal_code", 
+            "type": "integer"
+          }, 
+          {
+            "description": "Require at least permission level X that user has over a sensor", 
+            "enum": [
+              "IS_GUEST", 
+              "IS_HOST", 
+              "IS_MANAGER", 
+              "IS_ADMIN"
+            ], 
+            "in": "query", 
+            "name": "permission", 
+            "type": "string"
+          }, 
+          {
+            "default": 20, 
+            "description": "Maximal count of sensor in result list", 
+            "in": "query", 
+            "min": 1, 
+            "name": "page_size", 
+            "type": "integer"
+          }, 
+          {
+            "default": 1, 
+            "description": "Number of page in paginated results", 
+            "in": "query", 
+            "min": 1, 
+            "name": "page_number", 
+            "type": "integer"
+          }, 
+          {
+            "description": "Field to sort results by", 
+            "enum": [
+              "sensor_id", 
+              "name", 
+              "specifier", 
+              "street", 
+              "postal_code", 
+              "city", 
+              "battery_step", 
+              "battery_level", 
+              "battery_level_since", 
+              "installation_date", 
+              "owner", 
+              "is_favorite", 
+              "distance"
+            ], 
+            "in": "query", 
+            "name": "sort_by", 
+            "type": "string"
+          }, 
+          {
+            "description": "Direction of sorting results", 
+            "enum": [
+              "asc", 
+              "desc"
+            ], 
+            "in": "query", 
+            "name": "order_by", 
+            "type": "string"
+          }, 
+          {
+            "description": "Fuzzy case-insensitive search through `specifier`, `street`, `postal_code` and `city` at once.", 
+            "in": "query", 
+            "name": "search"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "List of found Sensors", 
+            "schema": {
+              "$ref": "#/definitions/SensorResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }
+        }, 
+        "summary": "Get a list of visible sensors", 
+        "tags": [
+          "Sensor"
+        ]
+      }
+    }, 
+    "/v1/sensors/{sensor_id}/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "sensor_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Sensor details", 
+            "schema": {
+              "$ref": "#/definitions/SensorSingleResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get sensor details", 
+        "tags": [
+          "Sensor"
+        ]
+      }
+    }, 
+    "/v1/sensors/{sensor_id}/act/{action}/": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Allows to run one of predefined actions on a door sensor.<br/>The most useful one is to open a door (``open``).<br/><br/>**Note**: sending a command to a sensor doesn't guarantee it's going to reach the target device (best effort).", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "sensor_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "enum": [
+              "open", 
+              "close"
+            ], 
+            "in": "path", 
+            "name": "action", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successfully sent out action command addressed to a sensor"
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }, 
+          "503": {
+            "description": "Failed to send a command to the sensor"
+          }
+        }, 
+        "summary": "Send a command to a sensor", 
+        "tags": [
+          "Sensor"
+        ]
+      }
+    }, 
+    "/v1/sensors/{sensor_id}/permissions/": {
+      "get": {
+        "description": "Get the list of permissions for a certain sensor.", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "sensor_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "description": "Filter by date time range. Permissions that overlap with the specified timespan (inclusive) will be included in the result (see `ends` parameter). Timezone needs to be specified.\n", 
+            "example": "2019-01-01T12:00:00Z", 
+            "format": "date-time", 
+            "in": "query", 
+            "name": "begins", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by date time range. Permissions that overlap with the specified timespan (inclusive) will be included in the result (see `begins` parameter). Timezone needs to be specified.\n", 
+            "example": "2019-01-01T18:00:00Z", 
+            "format": "date-time", 
+            "in": "query", 
+            "name": "ends", 
+            "type": "string"
+          }, 
+          {
+            "collectionFormat": "csv", 
+            "description": "Filter by timing state of a permission.", 
+            "in": "query", 
+            "items": {
+              "enum": [
+                "active", 
+                "pending", 
+                "expired", 
+                "offday", 
+                "offhours"
+              ], 
+              "type": "string"
+            }, 
+            "name": "timing_state", 
+            "type": "array"
+          }, 
+          {
+            "collectionFormat": "csv", 
+            "description": "Filter by permission type.", 
+            "example": null, 
+            "in": "query", 
+            "items": {
+              "enum": [
+                "IS_ADMIN", 
+                "IS_MANAGER", 
+                "IS_HOST", 
+                "IS_GUEST"
+              ], 
+              "type": "string"
+            }, 
+            "name": "granted", 
+            "type": "array"
+          }, 
+          {
+            "description": "Filter by username/email of the user that granted a permission.", 
+            "example": "user@kiwi.ki", 
+            "format": "email", 
+            "in": "query", 
+            "name": "granted_by", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by username/email of the user that a permission has been granted.", 
+            "example": "john.doe@kiwi.ki", 
+            "format": "email", 
+            "in": "query", 
+            "name": "username", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by forename of the user that a permission has been granted.", 
+            "example": "John", 
+            "in": "query", 
+            "name": "name", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by last name of the user that a permission has been granted.", 
+            "example": "Doe", 
+            "in": "query", 
+            "name": "lastname", 
+            "type": "string"
+          }, 
+          {
+            "collectionFormat": "csv", 
+            "description": "Filter by segment of the user that a permission has been granted.\n  * `00` - KIWI employee\n  * `05` - KIWI electrician\n  * `10` - Resident\n  * `15` - Resident (special)\n  * `20` - Small business employee\n  * `25` - Small business employee (special)\n  * `30` - Employee\n  * `35` - Employee (special)\n  * `40` - Service provider\n  * `45` - Service provider (special)\n  * `50` - Partner\n  * `55` - Partner (special)\n", 
+            "in": "query", 
+            "items": {
+              "enum": [
+                "00", 
+                "05", 
+                "10", 
+                "15", 
+                "20", 
+                "25", 
+                "30", 
+                "35", 
+                "40", 
+                "45", 
+                "50", 
+                "55"
+              ], 
+              "type": "string"
+            }, 
+            "name": "segment_id", 
+            "type": "array"
+          }, 
+          {
+            "default": 20, 
+            "description": "Maximal number of items per page.", 
+            "in": "query", 
+            "min": 1, 
+            "name": "page_size", 
+            "type": "integer"
+          }, 
+          {
+            "default": 1, 
+            "description": "Number of page in paginated results.", 
+            "in": "query", 
+            "min": 1, 
+            "name": "page_number", 
+            "type": "integer"
+          }, 
+          {
+            "default": "permission_id", 
+            "description": "Field to sort results by.", 
+            "enum": [
+              "permission_id", 
+              "granted_by_user_name", 
+              "permission_type", 
+              "street", 
+              "postal_code", 
+              "city", 
+              "specifier", 
+              "ends", 
+              "timing_state"
+            ], 
+            "in": "query", 
+            "name": "sort_by", 
+            "type": "string"
+          }, 
+          {
+            "default": "asc", 
+            "description": "Direction of sorting results.", 
+            "enum": [
+              "asc", 
+              "desc"
+            ], 
+            "in": "query", 
+            "name": "order_by", 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "List of matching permissions", 
+            "schema": {
+              "$ref": "#/definitions/SensorPermissionsResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "summary": "Get sensor permissions", 
+        "tags": [
+          "Sensor"
+        ]
+      }
+    }, 
+    "/v1/session/": {
+      "delete": {
+        "description": "This effectively logs an user out.", 
+        "responses": {
+          "200": {
+            "description": "Session destroyed", 
+            "schema": {
+              "properties": {
+                "status": {
+                  "example": "ok", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "summary": "Clean up user session", 
+        "tags": [
+          "Session"
+        ]
+      }, 
+      "post": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "Establish an authenticated user session.<br/>Before most API requests can be made, a login session must be started by providing a valid username and password. A **session key** will then be given back from the API, which can be used for authentication on further API requests.", 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "credentials", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                }, 
+                "username": {
+                  "format": "email", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "username", 
+                "password"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "New session started", 
+            "schema": {
+              "$ref": "#/definitions/SessionResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "security": [], 
+        "summary": "Create user session", 
+        "tags": [
+          "Session"
+        ]
+      }
+    }, 
+    "/v1/tasks/{task_id}/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ], 
+        "description": "", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "task_id", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "friendly_name": {
+                  "example": 123, 
+                  "type": "int"
+                }
+              }, 
+              "required": [
+                "task_id"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Task status", 
+            "schema": {
+              "$ref": "#/definitions/Task", 
+              "type": "object"
+            }
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Get information about the status of a task", 
+        "tags": [
+          "Task"
+        ]
+      }
+    }, 
+    "/v1/users/": {
+      "post": {
+        "description": "", 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "user_data", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "country": {
+                  "maxLength": 2, 
+                  "type": "string"
+                }, 
+                "email": {
+                  "format": "email", 
+                  "maxLength": 127, 
+                  "type": "string"
+                }, 
+                "i_have_read_and_accepted_kiwidotki_agb": {
+                  "example": true, 
+                  "type": "boolean"
+                }, 
+                "lang": {
+                  "enum": [
+                    "en", 
+                    "de"
+                  ], 
+                  "type": "string"
+                }, 
+                "lastname": {
+                  "example": "Moritz", 
+                  "maxLength": 64, 
+                  "type": "string"
+                }, 
+                "name": {
+                  "example": "Max", 
+                  "maxLength": 64, 
+                  "type": "string"
+                }, 
+                "password": {
+                  "type": "string"
+                }, 
+                "segment_id": {
+                  "default": 10, 
+                  "enum": [
+                    "00", 
+                    "05", 
+                    "10", 
+                    "15", 
+                    "20", 
+                    "25", 
+                    "30", 
+                    "35", 
+                    "40", 
+                    "50", 
+                    "55"
+                  ], 
+                  "type": "string"
+                }, 
+                "send_verification_mail": {
+                  "example": true, 
+                  "type": "boolean"
+                }
+              }, 
+              "required": [
+                "name", 
+                "lastname"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "User account created", 
+            "schema": {
+              "$ref": "#/definitions/UserCreatedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "summary": "Create a new user account", 
+        "tags": [
+          "User"
+        ]
+      }
+    }, 
+    "/v1/users/permissions/": {
+      "get": {
+        "description": "Get the list of permissions that a user has over sensors.", 
+        "parameters": [
+          {
+            "description": "ID of the user, whose permissions should be returned. If omitted, permissions of session user are returned.\n", 
+            "example": 1501, 
+            "in": "query", 
+            "name": "user_id", 
+            "type": "integer"
+          }, 
+          {
+            "description": "Filter by date time range. Permissions that overlap with the specified timespan (inclusive) will be included in the result (see `ends` parameter). Timezone needs to be specified.\n", 
+            "example": "2019-01-01T12:00:00Z", 
+            "format": "date-time", 
+            "in": "query", 
+            "name": "begins", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by date time range. Permissions that overlap with the specified timespan (inclusive) will be included in the result (see `begins` parameter). Timezone needs to be specified.\n", 
+            "example": "2019-01-01T18:00:00Z", 
+            "format": "date-time", 
+            "in": "query", 
+            "name": "ends", 
+            "type": "string"
+          }, 
+          {
+            "collectionFormat": "csv", 
+            "description": "Filter by timing state of a permission.", 
+            "in": "query", 
+            "items": {
+              "enum": [
+                "active", 
+                "pending", 
+                "expired", 
+                "offday", 
+                "offhours"
+              ], 
+              "type": "string"
+            }, 
+            "name": "timing_state", 
+            "type": "array"
+          }, 
+          {
+            "description": "Filter by specifier of a permission's sensor.", 
+            "example": "Entrance door", 
+            "in": "query", 
+            "name": "specifier", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by street name of the address of a permission's sensor.", 
+            "example": "Wattstr. 11", 
+            "in": "query", 
+            "name": "street", 
+            "type": "string"
+          }, 
+          {
+            "description": "Filter by postal code of the address of a permission's sensor.", 
+            "example": 13355, 
+            "in": "query", 
+            "name": "postal_code", 
+            "type": "int"
+          }, 
+          {
+            "description": "Filter by city of the address of a permission's sensor.", 
+            "example": "Berlin", 
+            "in": "query", 
+            "name": "city", 
+            "type": "string"
+          }, 
+          {
+            "collectionFormat": "csv", 
+            "description": "Filter by permission type.", 
+            "example": null, 
+            "in": "query", 
+            "items": {
+              "enum": [
+                "IS_ADMIN", 
+                "IS_MANAGER", 
+                "IS_HOST", 
+                "IS_GUEST"
+              ], 
+              "type": "string"
+            }, 
+            "name": "granted", 
+            "type": "array"
+          }, 
+          {
+            "description": "Filter by username/email of the user that granted a permission.", 
+            "example": "user@kiwi.ki", 
+            "format": "email", 
+            "in": "query", 
+            "name": "granted_by", 
+            "type": "string"
+          }, 
+          {
+            "default": false, 
+            "description": "Include permissions created by the user.", 
+            "in": "query", 
+            "name": "include_created_permissions", 
+            "type": "boolean"
+          }, 
+          {
+            "description": "Include permissions that are inactive since a certain point of time.", 
+            "example": "2019-01-01T12:00:00Z", 
+            "format": "date-time", 
+            "in": "query", 
+            "name": "inactive_since", 
+            "type": "string"
+          }, 
+          {
+            "default": false, 
+            "description": "Include deleted permissions.", 
+            "in": "query", 
+            "name": "include_deleted", 
+            "type": "boolean"
+          }, 
+          {
+            "default": 20, 
+            "description": "Maximal number of items per page.", 
+            "in": "query", 
+            "min": 1, 
+            "name": "page_size", 
+            "type": "integer"
+          }, 
+          {
+            "default": 1, 
+            "description": "Number of page in paginated results.", 
+            "in": "query", 
+            "min": 1, 
+            "name": "page_number", 
+            "type": "integer"
+          }, 
+          {
+            "default": "permission_id", 
+            "description": "Field to sort results by.", 
+            "enum": [
+              "permission_id", 
+              "granted_by_user_name", 
+              "permission_type", 
+              "street", 
+              "postal_code", 
+              "city", 
+              "specifier", 
+              "ends", 
+              "timing_state"
+            ], 
+            "in": "query", 
+            "name": "sort_by", 
+            "type": "string"
+          }, 
+          {
+            "default": "asc", 
+            "description": "Direction of sorting results.", 
+            "enum": [
+              "asc", 
+              "desc"
+            ], 
+            "in": "query", 
+            "name": "order_by", 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "List of matching permissions", 
+            "schema": {
+              "$ref": "#/definitions/UserPermissionsResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "summary": "Get user permissions", 
+        "tags": [
+          "User"
+        ]
+      }
+    }, 
+    "/v1/users/{user_id}/": {
+      "get": {
+        "description": "", 
+        "parameters": [
+          {
+            "example": 1501, 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/UserResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }
+        }, 
+        "summary": "Get detailed user information", 
+        "tags": [
+          "User"
+        ]
+      }
+    }, 
+    "/v1/users/{user_id}/email/": {
+      "delete": {
+        "description": "You can only remove the email address of offline users managed by the session user's organization.", 
+        "parameters": [
+          {
+            "example": 1501, 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Email address was removed", 
+            "schema": {
+              "$ref": "#/definitions/EmailRemovedResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Remove a user's email address", 
+        "tags": [
+          "User"
+        ]
+      }, 
+      "put": {
+        "description": "You can only change the email address of the session user or offline users managed by the session user's organization.", 
+        "parameters": [
+          {
+            "example": 1501, 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "integer"
+          }, 
+          {
+            "in": "body", 
+            "name": "data", 
+            "required": true, 
+            "schema": {
+              "properties": {
+                "app": {
+                  "description": "The application context.", 
+                  "enum": [
+                    "mobile_web", 
+                    "portal"
+                  ], 
+                  "type": "string"
+                }, 
+                "email": {
+                  "description": "The new email address.", 
+                  "format": "email", 
+                  "type": "string"
+                }, 
+                "password": {
+                  "description": "The current user's password. Required if a user is changing their own email.", 
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "email"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Email address was changed or the change process was started successfully", 
+            "schema": {
+              "$ref": "#/definitions/EmailChangeResult", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Change a user's email address", 
+        "tags": [
+          "User"
+        ]
+      }
+    }, 
+    "/v1/users/{user_id}/move/out/": {
+      "post": {
+        "description": "If tenants are moved out of an apartment, they will lose all permissions granted by the apartment managers. Also, the user will no longer be managed by the organisation.<br/>If the user is an offline user, they will be deleted.", 
+        "parameters": [
+          {
+            "description": "ID of the users that should be moved out.", 
+            "example": 1501, 
+            "in": "path", 
+            "name": "user_id", 
+            "required": true, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Successfully moved tenant out of the organization", 
+            "schema": {
+              "$ref": "#/definitions/UserMovedOut", 
+              "type": "object"
+            }
+          }, 
+          "400": {
+            "$ref": "#/definitions/responses/BadRequest"
+          }, 
+          "401": {
+            "$ref": "#/definitions/responses/Unauthorized"
+          }, 
+          "403": {
+            "$ref": "#/definitions/responses/Forbidden"
+          }, 
+          "404": {
+            "$ref": "#/definitions/responses/NotFound"
+          }
+        }, 
+        "summary": "Move tenant out of an organization", 
+        "tags": [
+          "User"
+        ]
+      }
+    }
+  }, 
+  "produces": [
+    "application/json"
+  ], 
+  "security": [
+    {
+      "header_token": []
+    }
+  ], 
+  "securityDefinitions": {
+    "header_token": {
+      "in": "header", 
+      "name": "Session-Key", 
+      "type": "apiKey"
+    }
+  }, 
+  "swagger": "2.0", 
+  "tags": [
+    {
+      "description": "Managing user session (logging in/out)", 
+      "name": "Session"
+    }, 
+    {
+      "description": "Managing access rights", 
+      "name": "Permission"
+    }, 
+    {
+      "description": "Managing door sensors", 
+      "name": "Sensor"
+    }
+  ]
+}

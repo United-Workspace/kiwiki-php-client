@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Find an address in KIWI database
 
-An existing address indicates that this building is already KIWI equipped.<br/>If session key provided, the response will include the information regarding the sensor.
+An existing address indicates that this building is already KIWI equipped.<br/>Session user needs to hold a permission to view the information regarding the sensor.
 
 ### Example
 ```php

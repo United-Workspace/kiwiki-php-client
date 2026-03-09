@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **v1SessionDelete**
-> object v1SessionDelete()
+> \KiwiKi\Model\InlineResponse200 v1SessionDelete()
 
 Clean up user session
 
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**\KiwiKi\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ $apiInstance = new KiwiKi\Api\SessionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$credentials = new \KiwiKi\Model\\KiwiKi\Model\Credentials(); // \KiwiKi\Model\Credentials | 
+$credentials = new \KiwiKi\Model\Credentials(); // \KiwiKi\Model\Credentials | 
 
 try {
     $result = $apiInstance->v1SessionPost($credentials);
@@ -91,7 +91,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **credentials** | [**\KiwiKi\Model\Credentials**](../Model/.md)|  |
+ **credentials** | [**\KiwiKi\Model\Credentials**](../Model/Credentials.md)|  |
 
 ### Return type
 
