@@ -1,0 +1,12 @@
+{
+    "clientLanguage": "php",
+    "gitUser": "United Workspace Rover",
+    "gitEmail": "system@united-workspace.de",
+    "apiPayload": {
+        "options": {
+            "invokerPackage": "KiwiKi",
+            "packagePath": ""
+        },
+        "swaggerUrl": "https://api.kiwi.ki/v1/spec.json"
+    }
+}
