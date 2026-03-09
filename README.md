@@ -1,9 +1,9 @@
-# KIWI API PHP SDK
+# KIWI.KI API PHP SDK
 
-PHP SDK for the KIWI API used for remote unlocking and administration of doors.
+PHP SDK for the KIWI.KI API used for remote unlocking and administration of doors.
 
 > [!NOTE]
-> This SDK is generated from the KIWI API specification and maintained as an integration library.
+> This SDK is generated from the KIWI.KI API specification and maintained as an integration library.
 
 ## Features
 
@@ -24,7 +24,7 @@ Add this to your consuming project's `composer.json`:
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://gitlab.com/sleevesup/kiwiki-php-client.git"
+      "url": "https://github.com/United-Workspace/kiwiki-php-client.git"
     }
   ],
   "require": {
@@ -42,11 +42,11 @@ composer update sleevesup/kiwiki-api --with-all-dependencies
 ### Option B: Configure via Composer CLI
 
 ```bash
-composer config repositories.kiwiki vcs https://gitlab.com/sleevesup/kiwiki-php-client.git
+composer config repositories.kiwiki vcs https://github.com/United-Workspace/kiwiki-php-client.git
 composer require sleevesup/kiwiki-api:dev-main
 ```
 
-If the repository is private, ensure Composer can authenticate to GitLab (SSH key or access token).
+If the repository is private, ensure Composer can authenticate to GitHub (SSH key or access token).
 
 ## Getting Started
 
@@ -73,7 +73,7 @@ $result = $api->v1AddressesSearchGet('street', '1', 1010);
 
 ## Automated Generation & Release
 
-- `Generate KIWI Client` workflow (`.github/workflows/generate-client.yml`)
+- `Generate KIWI.KI Client` workflow (`.github/workflows/generate-client.yml`)
   - Triggered manually
   - Regenerates client code from the configured Swagger spec
   - Opens a pull request with the changes

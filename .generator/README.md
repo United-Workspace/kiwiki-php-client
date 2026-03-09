@@ -1,6 +1,6 @@
-# KIWI API Client Generator
+# KIWI.KI API Client Generator
 
-This folder contains the configuration and scripts used to automatically generate the PHP client library for the KIWI API using the [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) project.
+This folder contains the configuration and scripts used to automatically generate the PHP client library for the KIWI.KI API using the [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) project.
 
 ## How it Works
 
@@ -15,7 +15,7 @@ This folder contains the configuration and scripts used to automatically generat
 
 We use two workflows to automate client updates and releases:
 
-### 1. Generate KIWI Client (`generate-client.yml`)
+### 1. Generate KIWI.KI Client (`generate-client.yml`)
 This workflow is triggered manually via **workflow_dispatch**.
 -   **Function**: It fetches the latest API specification, triggers code generation, and extracts the generated code into the repository.
 -   **Result**: It automatically creates a new branch and a Pull Request for review.
